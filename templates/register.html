@@ -1,17 +1,18 @@
 {% extends "layout.html" %}
 
 {% block head %}
-
+<script type="text/javascript" src="{{ url_for('static', filename = 'js/validateForm.js') }}"></script>   
 {% endblock %}
 {% block body %}
 <section class="p-5">
     <div class="container">
+        <p>{{ error }}</p>
         <div class="row align-items-center justify-content-between">
             <div class="col-md m-2">
-                <img class="img-fluid" src={{ url_for('static', filename='images/login.svg' ) }} alt="">
+                <img class="img-fluid" src="{{ url_for('static', filename='images/login.svg' ) }}" alt="">
             </div>
             <div id="contactForm" class="col-md p-5 bg-light text-dark">
-                <form action="/login" method="POST">
+                <form action="/register" method="POST" onsubmit="return validate()">
                     <div class="mb-2">
                         <label for="email" class="col-form-label">Email</label>
                         <input placeholder="Enter your email" type="text" class="form-control" id="email" name="email">
@@ -24,7 +25,7 @@
                     
                     <div class="mb-1">
                         <label for="password" class="col-form-label">Confirm Password</label>
-                        <input placeholder="Enter password" type="password" class="form-control" id="password"
+                        <input placeholder="Enter password" type="password" class="form-control" id="cPassword"
                             name="password">
                     </div>
 
@@ -38,15 +39,45 @@
                             <input placeholder="Enter last name" type="text" class="form-control" id="lastName" name="lastName">
                         </div>
                     </div>
+                    <div class="mb-2">
+                        <label for="email" class="col-form-label">Addres Line 1</label>
+                        <input placeholder="Enter address line 1" type="text" class="form-control" id="addressLine1" name="addressLine1">
+                    </div>
+                    <div class="mb-2">
+                        <label for="email" class="col-form-label">Address Line</label>
+                        <input placeholder="Enter address line 2" type="text" class="form-control" id="addressLine2" name="addressLine2">
+                    </div>
+
+                    <div class="row">
+                        <div class="col mb-2">
+                            <label for="email" class="col-form-label">City</label>
+                            <input placeholder="Enter city" type="text" class="form-control" id="city" name="city">
+                        </div>
+                        <div class="col mb-2">
+                            <label for="email" class="col-form-label">State</label>
+                            <input placeholder="Enter state" type="text" class="form-control" id="state" name="state">
+                        </div>
+                        
+                        <div class="col mb-2">
+                            <label for="email" class="col-form-label">Country</label>
+                            <input placeholder="Enter country" type="text" class="form-control" id="country" name="country">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col mb-2">
+                            <label for="email" class="col-form-label">Postalcode</label>
+                            <input placeholder="Enter postalcode" type="text" class="form-control" id="postalCode" name="postalCode">
+                        </div>
+                        <div class="col mb-2">
+                            <label for="email" class="col-form-label">Contact</label>
+                            <input placeholder="Enter contact" type="text" class="form-control" id="contact" name="contact">
+                        </div>
+                    </div>
 
                     <div id="buttonDiv">
-                        <button type="submit" class="btn btn-outline-dark mt-2">Sign
-                            Up</button>
+                        <button type="submit" class="btn btn-outline-dark mt-2">Sign Up</button>
                     </div>
                 </form>
-                <h6 class="mt-2">
-                    If you don't have an account. <a href="">Register</a>
-                </h6>
             </div>
 
         </div>

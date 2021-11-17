@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+
+{% block head %}
+<title>Add Product</title>
+<script type="text/javascript" src="{{ url_for('static', filename = 'js/validateForm.js') }}"></script>
+{% endblock %}
+{% block body %}
+<section class="p-5">
+    <div class="container">
+        <p>{{ error }}</p>
+        <div class="row align-items-center justify-content-between">
+            <div id="contactForm" class="col-md p-5 bg-light text-dark">
+                <form action="/addProducts" method="POST" enctype="multipart/form-data">
+                    <div class="mb-2">
+                        <label for="email" class="col-form-label">Product Name</label>
+                        <input placeholder="Enter product name" type="text" class="form-control" id="productName"
+                            name="productName">
+                    </div>
+                    <div class="mb-1">
+                        <label for="password" class="col-form-label">Unit Price</label>
+                        <input placeholder="Enter password" type="Text" class="form-control" id="price" name="price">
+                    </div>
+                    <div class="mb-1">
+                        <label for="password" class="col-form-label">Description</label>
+                        <textarea placeholder="Enter description" class="form-control" id="description" name="description"
+                            rows="3"></textarea>
+                    </div>
+                    
+                    <div class="mb-1">
+                        <label for="password" class="col-form-label">Quantity</label>
+                        <input placeholder="Enter quantity" type="Text" class="form-control" id="qty" name="qty">
+                    </div>
+                    <div class="row">
+                        <div class="col mb-2">
+                            <label for="email" class="col-form-label">Image</label>
+                            <input placeholder="Enter first name" type="file" class="form-control" id="image"
+                                name="image">
+                        </div>
+                        <div class="col mb-2">
+                            <label for="email" class="col-form-label">Category</label>
+                            <select class="form-control" name="category">
+                                {% for category in categories %}
+                                <option value="{{ category[0] }}">{{ category[1] }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+
+                    <div id="buttonDiv" class="float-end">
+                        <button type="submit" class="btn btn-outline-dark mt-2">Add Product</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md m-2">
+                <img class="img-fluid" src="{{ url_for('static', filename='images/product add.svg' ) }}" alt="">
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

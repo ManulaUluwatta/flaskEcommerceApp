@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block head %}
+<!-- <title>{{ categoryName }}</title> -->
+{% endblock %}
+{% block body %}
+<section id="" class="p-5 bg-light text-dark">
+    <div class="container">
+        <h2 class="text-center text-dark pb-5">All Products of {{ categoryName }}</h2>
+        <div class="row g-4">
+            {% for data in productsDetails %}
+            {% for product in data %}
+            <div class="col-md-6 col-lg-3">
+                <div class="card bg-dark text-light h-100">
+                    <img src="{{ url_for('static', filename='uploads/' + product[3]) }}" class="card-img-top mb-3"
+                        alt="...">
+                    <div class="card-body text-center">
+                        <h3 class="card-title mb-3">{{ product[1] }}</h3>
+                        <p class="card-text">{{ product[3] }}</p>
+                        <h6 class="text-warning">${{ product[2] }}</h6>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            {% endfor %}
+        </div>
+
+
+    </div>
+</section>
+{% endblock %}
