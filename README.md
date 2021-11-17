@@ -1,4 +1,6 @@
 # flaskEcommerceApp
+
+Landing Page
 ![landingpage](https://user-images.githubusercontent.com/29893232/142298722-78e817f8-207e-443f-a908-2928a0f82d14.png)
 ![login](https://user-images.githubusercontent.com/29893232/142298787-3e894b58-51d0-4515-b4bd-e568e0760a47.png)
 ![register](https://user-images.githubusercontent.com/29893232/142298795-3ef3efe9-978d-47d8-a002-f3ac88bd7e34.png)
