@@ -70,7 +70,7 @@ def index():
 @app.route("/logInForm")
 def signIn():
     if 'email' in session:
-        return redirect(url_for*('/'))
+        return redirect('/')
     else:
         return render_template("login.html", error='')
 
@@ -203,7 +203,7 @@ def displayCategory():
         conn.close()
         categoryName = data[0][4]
         data = parse(data)
-        return render_template('displayCategory.html', productsDetails=data, loggedIn=loggedIn, firstName=firstName, noOfItems=noOfItems, categoryName=categoryName)
+        return render_template('displayCategory.html', productsDetails=data, isLogged=loggedIn, firstName=firstName, numOfItems=noOfItems, categoryName=categoryName)
 
 # product descirption
 @app.route("/productDescription")
@@ -215,13 +215,13 @@ def productDescription():
         db.execute('SELECT product_id, productName, price, description, image, qty FROM PRODUCTS WHERE product_id=?', (product_id, ))
         productData = db.fetchone()
     conn.close()
-    return render_template("productDescription.html", productData=productData, loggedIn=loggedIn, firstName=firstName, noOfItems = noOfItems)
+    return render_template("productDescription.html", productData=productData, isLogged=loggedIn, firstName=firstName, numOfItems = noOfItems)
 
 # add to cart
 @app.route("/addToCart")
 def addToCart():
     if 'email' not in session:
-        return redirect('login.html')
+        return redirect('/logInForm')
     else:
         product_id = int(request.args.get('product_id'))
         with sqlite3.connect('database.db') as conn:
@@ -242,20 +242,40 @@ def addToCart():
 @app.route("/cart")
 def cart():
     if 'email' not in session:
-        return redirect('login.html')
+        return redirect('/')
     loggedIn, firstName, noOfItems = getLoginDetails()
     email = session['email']
     with sqlite3.connect('database.db') as conn:
         cur = conn.cursor()
-        cur.execute("SELECT userId FROM users WHERE email = ?", (email, ))
-        userId = cur.fetchone()[0]
-        cur.execute("SELECT products.productId, products.name, products.price, products.image FROM products, kart WHERE products.productId = kart.productId AND kart.userId = ?", (userId, ))
+        cur.execute("SELECT user_id FROM users WHERE email = ?", (email, ))
+        user_id = cur.fetchone()[0]
+        cur.execute("SELECT products.product_id, products.productName, products.price, products.image, products.description FROM products, cart WHERE products.product_id = cart.product_id AND cart.user_id = ?", (user_id, ))
         products = cur.fetchall()
     totalPrice = 0
     for row in products:
         totalPrice += row[2]
-    return render_template("cart.html", products = products, totalPrice=totalPrice, loggedIn=loggedIn, firstName=firstName, noOfItems=noOfItems)
+    return render_template("cart.html", products = products, totalPrice=totalPrice, isLogged=loggedIn, firstName=firstName, numOfItems=noOfItems)
 
+# remove item from cart
+@app.route("/removeFromCart")
+def removeFromCart():
+    if 'email' not in session:
+        return redirect('/logInForm')
+    email = session['email']
+    product_id = int(request.args.get('productId'))
+    with sqlite3.connect('database.db') as conn:
+        cur = conn.cursor()
+        cur.execute("SELECT user_id FROM users WHERE email = ?", (email, ))
+        user_id = cur.fetchone()[0]
+        try:
+            cur.execute("DELETE FROM cart WHERE user_id = ? AND product_id = ?", (user_id, product_id))
+            conn.commit()
+            msg = "removed successfully"
+        except:
+            conn.rollback()
+            msg = "error occured"
+    conn.close()
+    return redirect('/cart')
 
 def allowed_file(filename):
     return '.' in filename and \

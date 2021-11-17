@@ -43,4 +43,16 @@ conn.execute('''CREATE TABLE cart
 		FOREIGN KEY(product_id) REFERENCES products(product_id)
 		)''')
 
+db = conn.cursor()
+
+db.execute("INSERT INTO categories (name) VALUES ('Computers & tablets')")
+db.execute("INSERT INTO categories (name) VALUES ('Cameras & photo')")
+db.execute("INSERT INTO categories (name) VALUES ('Cell phones & accessories')")
+db.execute("INSERT INTO categories (name) VALUES ('Jewelry & watches')")
+db.execute("INSERT INTO categories (name) VALUES ('Pet supplies')")
+db.execute("INSERT INTO categories (name) VALUES ('Sporting goods')")
+db.execute("INSERT INTO categories (name) VALUES ('Kids toys')")
+db.execute("INSERT INTO categories (name) VALUES ('Shoes')")
+conn.commit()
+
 conn.close

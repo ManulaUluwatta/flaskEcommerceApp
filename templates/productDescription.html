@@ -23,7 +23,7 @@
                         <h6><span>Available Quentiy : </span>{{ productData[5] }}</h6>
                     </div>
                     <div id="buttonDiv">
-                        <a href="" class="btn btn-outline-dark mt-2">Add to cart</a>
+                        <a href="/addToCart?product_id={{request.args.get('product_id')}}" class="btn btn-outline-dark mt-2">Add to cart</a>
                     </div>
                 </div>
             </div>

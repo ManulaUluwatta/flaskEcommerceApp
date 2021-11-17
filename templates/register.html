@@ -1,12 +1,11 @@
 {% extends "layout.html" %}
 
 {% block head %}
-<script type="text/javascript" src="{{ url_for('static', filename = 'js/validateForm.js') }}"></script>   
+<script type="text/javascript" src="{{ url_for('static', filename = 'js/validateForm.js') }}"></script>
 {% endblock %}
 {% block body %}
 <section class="p-5">
     <div class="container">
-        <p>{{ error }}</p>
         <div class="row align-items-center justify-content-between">
             <div class="col-md m-2">
                 <img class="img-fluid" src="{{ url_for('static', filename='images/login.svg' ) }}" alt="">
@@ -22,7 +21,7 @@
                         <input placeholder="Enter password" type="password" class="form-control" id="password"
                             name="password">
                     </div>
-                    
+
                     <div class="mb-1">
                         <label for="password" class="col-form-label">Confirm Password</label>
                         <input placeholder="Enter password" type="password" class="form-control" id="cPassword"
@@ -32,20 +31,24 @@
                     <div class="row">
                         <div class="col mb-2">
                             <label for="email" class="col-form-label">First Name</label>
-                            <input placeholder="Enter first name" type="text" class="form-control" id="firstName" name="firstName">
+                            <input placeholder="Enter first name" type="text" class="form-control" id="firstName"
+                                name="firstName">
                         </div>
                         <div class="col mb-2">
                             <label for="email" class="col-form-label">Last Name</label>
-                            <input placeholder="Enter last name" type="text" class="form-control" id="lastName" name="lastName">
+                            <input placeholder="Enter last name" type="text" class="form-control" id="lastName"
+                                name="lastName">
                         </div>
                     </div>
                     <div class="mb-2">
                         <label for="email" class="col-form-label">Addres Line 1</label>
-                        <input placeholder="Enter address line 1" type="text" class="form-control" id="addressLine1" name="addressLine1">
+                        <input placeholder="Enter address line 1" type="text" class="form-control" id="addressLine1"
+                            name="addressLine1">
                     </div>
                     <div class="mb-2">
                         <label for="email" class="col-form-label">Address Line</label>
-                        <input placeholder="Enter address line 2" type="text" class="form-control" id="addressLine2" name="addressLine2">
+                        <input placeholder="Enter address line 2" type="text" class="form-control" id="addressLine2"
+                            name="addressLine2">
                     </div>
 
                     <div class="row">
@@ -57,20 +60,23 @@
                             <label for="email" class="col-form-label">State</label>
                             <input placeholder="Enter state" type="text" class="form-control" id="state" name="state">
                         </div>
-                        
+
                         <div class="col mb-2">
                             <label for="email" class="col-form-label">Country</label>
-                            <input placeholder="Enter country" type="text" class="form-control" id="country" name="country">
+                            <input placeholder="Enter country" type="text" class="form-control" id="country"
+                                name="country">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col mb-2">
                             <label for="email" class="col-form-label">Postalcode</label>
-                            <input placeholder="Enter postalcode" type="text" class="form-control" id="postalCode" name="postalCode">
+                            <input placeholder="Enter postalcode" type="text" class="form-control" id="postalCode"
+                                name="postalCode">
                         </div>
                         <div class="col mb-2">
                             <label for="email" class="col-form-label">Contact</label>
-                            <input placeholder="Enter contact" type="text" class="form-control" id="contact" name="contact">
+                            <input placeholder="Enter contact" type="text" class="form-control" id="contact"
+                                name="contact">
                         </div>
                     </div>
 

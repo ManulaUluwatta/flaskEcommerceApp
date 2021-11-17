@@ -6,14 +6,13 @@
 {% block body %}
 
 
-<section class="bg-dark text-light p-5 p-lg-0 p-md-5 text-center text-sm-start">
+<section class="text-light p-5 p-lg-0 p-md-5 text-center text-sm-start" style="background-color: rgb(9, 16, 51);">
     <div class="container">
         <div class="d-sm-flex align-items-center justify-content-between">
             <div>
                 <h1>All in one place<div class="span text-warning">BEST PLACE FOR SHOPPING</div>
                 </h1>
-                <button class="btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#register">Register
-                    Now</button>
+                <a class="btn-primary btn-lg" style="text-decoration:none" href="/registerForm">Register Now</a>
             </div>
 
             <img class="img-fluid w-50 d-none d-sm-block my-2"
@@ -22,17 +21,17 @@
     </div>
 </section>
 
-<section id="" class="p-3 bg-primary">
+<section id="category" class="p-3" style="background-color: rgb(102, 120, 179);">
     <div class="container">
 
-        <h4>Shop by <span class="text-warning">CATEGORY</span></h4>
+        <h4>Shop by <span class="text-light">CATEGORY</span></h4>
         <div class="row g-2">
             {% for row in categoryData %}
             <div class="col-md-6 col-lg-3">
                 <div class="card bg-dark text-light h-100">
                     <div class="card-body text-center">
-                        <a href="/displayCategory?categoryId={{row[0]}}">
-                            <p class="card-text text-light">{{ row[1] }}</p>
+                        <a href="/displayCategory?categoryId={{row[0]}}" style="text-decoration:none">
+                            <p id="categoryTag" class="card-text text-light">{{ row[1] }}</p>
                         </a>
                     </div>
                 </div>
@@ -43,7 +42,7 @@
 </section>
 
 
-<section id="" class="p-5 bg-light text-dark">
+<section id="product" class="p-5 bg-light text-dark">
     <div class="container">
         <h2 class="text-center text-dark pb-5">Our Products</h2>
         <div class="row g-4">

@@ -5,11 +5,10 @@
 {% endblock %}
 {% block body %}
 <section class="p-5">
-    <p>{{ error }}</p>
     <div class="container">
         <div class="row align-items-center justify-content-between">
             <div class="col-md m-2">
-                <img class="img-fluid" src={{ url_for('static', filename='images/login.svg' ) }} alt="">
+                <img class="img-fluid" src="{{ url_for('static', filename='images/login.svg' ) }}" alt="">
             </div>
             <div id="contactForm" class="col-md p-5 bg-light text-dark">
                 <form action="/login" method="POST">
