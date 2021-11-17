@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block head %}
+
+{% endblock %}
+{% block body %}
+
+
+<section class="bg-dark text-light p-5 p-lg-0 p-md-5 text-center text-sm-start">
+    <div class="container">
+        <div class="d-sm-flex align-items-center justify-content-between">
+            <div>
+                <h1>All in one place<div class="span text-warning">BEST PLACE FOR SHOPPING</div>
+                </h1>
+                <button class="btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#enroll">Register Now</button>
+            </div>
+            <img class="img-fluid w-50 d-none d-sm-block my-2" src={{ url_for('static',
+                filename='images/undraw_shopping_app_flsj.svg' ) }} alt="">
+        </div>
+    </div>
+</section>
+
+
+
+{% endblock %}
