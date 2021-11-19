@@ -1,11 +1,11 @@
 # E-commerce App
-#### Description:
+#### Description
     This is online shopping app.This application is based on Flask framework.This is my final project for [Harvard CS50x](https://cs50.harvard.edu/x/2021/) course.
     There are different sections on the web application. You can read search products by filtering category vice, if you are an admin, you can add products into the system.
 
 
 # CS50 Final Project - E-commerce App
-The project is a web application, where the customer buys their goods. In this project, I implement so many functions. Such as,
+The project is a web application, where the customer buys their goods. In this project, I implement so many functions. Such as:
     - Registering users
     - Adding products,
     - Removing products,
