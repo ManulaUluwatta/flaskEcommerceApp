@@ -1,5 +1,4 @@
 from logging import error
-import re
 import sqlite3, hashlib, os
 from flask import Flask, flash, jsonify, redirect, render_template, request, session
 from flask.helpers import url_for
@@ -8,15 +7,10 @@ from tempfile import mkdtemp
 
 from werkzeug.utils import secure_filename
 from werkzeug.exceptions import default_exceptions, HTTPException, InternalServerError
-from werkzeug.security import check_password_hash, generate_password_hash
 
-from datetime import datetime
-
-from helpers import apology, login_required, lookup, usd
 
 # Configure application
 app = Flask(__name__)
-app.secret_key = 'random string'
 UPLOAD_FOLDER = 'static/uploads'
 ALLOWED_EXTENSIONS = set(['jpeg', 'jpg', 'png', 'gif'])
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
